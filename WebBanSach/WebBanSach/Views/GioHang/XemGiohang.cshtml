@@ -1,0 +1,72 @@
+﻿@using WebBanSach.Models;
+@model List<GioHangSach>
+@{
+    ViewBag.Title = "XemGiohang";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+
+
+<h2 style="text-align:center"> Giỏ hàng của bạn: </h2>
+<br />
+<table border="1" style="text-align:center; width:1100px; height:250px">
+    <tr>
+        <td>Mã sách:</td>
+    
+        <td>Tên sách:</td>
+    
+        <td> Hình ảnh:</td>
+   
+        <td>Số lượng:</td>
+   
+        <td>Đơn giá:</td>
+        <td>Thay đổi </td>
+
+    </tr>
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.sMASACH</td>
+                <td>@i.sTENSACH</td>
+                <td><img src="~/@i.sHINHANH" style= "width:200px; height:200px"/></td>
+                @*<td>@i.iSOLUONG</td>*@
+               
+                <td><input type="number" name="soluong" value="@i.iSOLUONG"/></td>
+                        
+                <td>@i.fGIABAN</td>
+                 <td> <button style="font-size:20px; background-color: yellow"><a class="xoa" href="@Url.Action("XoaGioHang","GioHang")" style="color:red">Xóa</button>
+                     <button style="font-size:20px; background-color: yellow"> <a class="sua" href="@Url.Action("CapNhatGioHang","GioHang")" style="color:red">Cập Nhật</button>
+                     </td>
+            </tr>
+        }
+        <tr>       
+        <td colspan="6"style="text-align:center">Số Lượng Mua: <a style ="color:red">@ViewBag.sl</a>  -  Thành Tiền: <a style ="color:red">@ViewBag.tt</a> VNĐ <a style="margin-right:50px"></a></td>
+        </tr>
+         <tr>       
+        <td colspan="6"style="text-align:center">
+            <button style="font-size:25px; background-color: pink"><a class="chonmua" href="~/Home/SPNoiBat" style="color:black">Mua Tiếp</button>
+            <button style="font-size:25px; background-color: pink"><a class="dathang" href="~/NguoiDung/DangNhap" style="color:black">Dat Hang</button>
+        </td>
+        </tr>
+          
+           
+        
+      </tbody>
+   @* @foreach (var item in Model)
+    {
+        <tr>
+        <td>@item.sMASACH</td>
+    
+        <td>@item.sTENSACH</td>
+  
+        <td> <img src="@Url.Content("~/Images")" /></td>
+   
+        <td>@item.iSOLUONG</td>
+   
+        <td> @string.Format(" {0: 0, 0}", item.fGIABAN.ToString())</td>
+   
+        <td>@string.Format(" {0: 0, 0}", item.fTHANHTIEN.ToString())</td>
+    </tr>
+    }*@
+</table>

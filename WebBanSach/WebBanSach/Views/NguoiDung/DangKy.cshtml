@@ -1,0 +1,98 @@
+﻿@model WebBanSach.Models.KhachHang
+
+@{
+    ViewBag.Title = "DangKy";
+}
+
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Icon cho form ---------->
+    
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    
+<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center">Welcome to heaven of books</h4>
+	<p class="text-center">Kết nối bằng mạng xã hội</p>
+	<p>
+		<a href="https://twitter.com/home" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Đăng Nhập vào Twitter</a>
+		<a href="https://facebook.com" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>  Đăng nhập vào facebook</a>
+	</p>
+	<p class="divider-text">
+        <span class="bg-light">Bạn có thể</span>
+    </p>
+	<form>
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="" class="form-control" placeholder="Tên đăng nhập" type="text">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+        <input name="" class="form-control" placeholder="Email" type="email">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+    	<input name="" class="form-control" placeholder="Phone number" type="text">
+	</div> <!-- form-group end.// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Nhập mật khẩu" type="password">
+    </div> <!-- form-group// -->
+        <!--form-group// -->
+        <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-home"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Nhập địa chỉ của bạn" type="text">
+    </div> <!-- form-group// -->         
+            <div class="form-group input-group">
+        <span class="input-group-text"><i class="fa fa-user"></i></span>
+    	<div class="input-group-prepend">
+		</div>
+		<select class="custom-select" style="max-width: 120px;">
+		    <option selected="">Giới tính</option>
+		    <option value="1">Nam</option>
+		    <option value="2">Nữ</option>
+		    <option value="3">Khác...</option>
+		</select>
+    </div> <!-- form-group// -->
+                             
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Tạo tài khoản  </button>
+    </div> <!-- form-group// -->      
+    <p class="text-center">Đã có tài khoản? <a href="~/NguoiDung/DangNhap">Đăng nhập</a> </p>    
+      <div class="form-group">   
+          <a href="~/NguoiDung/DangNhap">Quay lại</a>
+      </div>                                                            
+</form>
+</article>
+</div> <!-- card.// -->
+
+}
+
+@*<script type="text/javascript">
+    $('#button').click( function(){
+    
+    if($ ('#TENKH').value() == "")
+    {
+       $('#LoiHoTen').text('Bạn chưa nhập họ tên');
+        return false;
+    }
+    });
+
+</script>*@
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

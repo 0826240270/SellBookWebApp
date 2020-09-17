@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0ace2a5591a14b56ae226a17b64b497f" Name="Diagram1">
+        <EntityTypeShape EntityType="DBBanSachModel.Admin" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBBanSachModel.GIOHANG" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBBanSachModel.KhachHang" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBBanSachModel.LOAISACH" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBBanSachModel.NXB" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBBanSachModel.SACH" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBBanSachModel.TACGIA" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="DBBanSachModel.FK_GIOHANG_SACH" ManuallyRouted="false" />
+        <AssociationConnector Association="DBBanSachModel.FK_SACH_LOAISACH" ManuallyRouted="false" />
+        <AssociationConnector Association="DBBanSachModel.FK_SACH_NXB" ManuallyRouted="false" />
+        <AssociationConnector Association="DBBanSachModel.FK_SACH_TACGIA" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

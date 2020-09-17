@@ -1,0 +1,13 @@
+﻿@using WebBanSach.Models;
+@model List<LOAISACH>
+
+
+    	 <p style="text-align:center; color:#000; background:#58ACFA; padding:15px">DANH MỤC SẢN PHẨM</p>
+@foreach(var item in Model)
+{
+         <div class="danhmuc">
+             <ul>
+          <li> <a href="@Url.Action("SachTheoLoai", new { @MALOAI = item.MALOAI})"> @item.TENLOAI </a> <br /></li>
+             </ul>
+         </div>	
+}

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBBanSachModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DBBanSachModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="DBBanSachModel.Store.Admin" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GIOHANG" EntityType="DBBanSachModel.Store.GIOHANG" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KhachHang" EntityType="DBBanSachModel.Store.KhachHang" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LOAISACH" EntityType="DBBanSachModel.Store.LOAISACH" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NXB" EntityType="DBBanSachModel.Store.NXB" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SACH" EntityType="DBBanSachModel.Store.SACH" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TACGIA" EntityType="DBBanSachModel.Store.TACGIA" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_GIOHANG_SACH" Association="DBBanSachModel.Store.FK_GIOHANG_SACH">
+      <End Role="SACH" EntitySet="SACH" />
+      <End Role="GIOHANG" EntitySet="GIOHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SACH_LOAISACH" Association="DBBanSachModel.Store.FK_SACH_LOAISACH">
+      <End Role="LOAISACH" EntitySet="LOAISACH" />
+      <End Role="SACH" EntitySet="SACH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SACH_NXB" Association="DBBanSachModel.Store.FK_SACH_NXB">
+      <End Role="NXB" EntitySet="NXB" />
+      <End Role="SACH" EntitySet="SACH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SACH_TACGIA" Association="DBBanSachModel.Store.FK_SACH_TACGIA">
+      <End Role="TACGIA" EntitySet="TACGIA" />
+      <End Role="SACH" EntitySet="SACH" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="TAIKHOANAD" />
+    </Key>
+    <Property Name="TAIKHOANAD" Type="char" Nullable="false" MaxLength="30" />
+    <Property Name="TENAD" Type="nvarchar" MaxLength="50" />
+    <Property Name="MATKHAU" Type="char" Nullable="false" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="GIOHANG">
+    <Key>
+      <PropertyRef Name="MAGIOHANG" />
+    </Key>
+    <Property Name="MAGIOHANG" Type="char" Nullable="false" MaxLength="30" />
+    <Property Name="MASACH" Type="char" MaxLength="30" />
+    <Property Name="NGAYGIAO" Type="datetime" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="MAKH" />
+    </Key>
+    <Property Name="MAKH" Type="char" Nullable="false" MaxLength="30" />
+    <Property Name="TENKH" Type="nvarchar" MaxLength="50" />
+    <Property Name="EMAIL" Type="char" Nullable="false" MaxLength="40" />
+    <Property Name="SDT" Type="int" />
+    <Property Name="MATKHAU" Type="char" Nullable="false" MaxLength="30" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="50" />
+    <Property Name="GIOITINH" Type="nvarchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="LOAISACH">
+    <Key>
+      <PropertyRef Name="MALOAI" />
+    </Key>
+    <Property Name="MALOAI" Type="char" Nullable="false" MaxLength="50" />
+    <Property Name="TENLOAI" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NXB">
+    <Key>
+      <PropertyRef Name="MANXB" />
+    </Key>
+    <Property Name="MANXB" Type="char" Nullable="false" MaxLength="30" />
+    <Property Name="TENNXB" Type="nvarchar" MaxLength="50" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SACH">
+    <Key>
+      <PropertyRef Name="MASACH" />
+    </Key>
+    <Property Name="MASACH" Type="char" Nullable="false" MaxLength="30" />
+    <Property Name="TENSACH" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="MATG" Type="char" Nullable="false" MaxLength="30" />
+    <Property Name="GIABAN" Type="float" />
+    <Property Name="HINHANH" Type="char" MaxLength="100" />
+    <Property Name="NGAYXUATBAN" Type="datetime" />
+    <Property Name="MANXB" Type="char" Nullable="false" MaxLength="30" />
+    <Property Name="MALOAI" Type="char" Nullable="false" MaxLength="50" />
+    <Property Name="MOTA" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="TACGIA">
+    <Key>
+      <PropertyRef Name="MATG" />
+    </Key>
+    <Property Name="MATG" Type="char" Nullable="false" MaxLength="30" />
+    <Property Name="TENTG" Type="nvarchar" MaxLength="50" />
+    <Property Name="DIACHI" Type="nvarchar" MaxLength="50" />
+    <Property Name="TIEUSU" Type="nvarchar" MaxLength="200" />
+    <Property Name="SDT" Type="int" />
+  </EntityType>
+  <Association Name="FK_GIOHANG_SACH">
+    <End Role="SACH" Type="DBBanSachModel.Store.SACH" Multiplicity="0..1" />
+    <End Role="GIOHANG" Type="DBBanSachModel.Store.GIOHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SACH">
+        <PropertyRef Name="MASACH" />
+      </Principal>
+      <Dependent Role="GIOHANG">
+        <PropertyRef Name="MASACH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SACH_LOAISACH">
+    <End Role="LOAISACH" Type="DBBanSachModel.Store.LOAISACH" Multiplicity="1" />
+    <End Role="SACH" Type="DBBanSachModel.Store.SACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAISACH">
+        <PropertyRef Name="MALOAI" />
+      </Principal>
+      <Dependent Role="SACH">
+        <PropertyRef Name="MALOAI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SACH_NXB">
+    <End Role="NXB" Type="DBBanSachModel.Store.NXB" Multiplicity="1" />
+    <End Role="SACH" Type="DBBanSachModel.Store.SACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NXB">
+        <PropertyRef Name="MANXB" />
+      </Principal>
+      <Dependent Role="SACH">
+        <PropertyRef Name="MANXB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SACH_TACGIA">
+    <End Role="TACGIA" Type="DBBanSachModel.Store.TACGIA" Multiplicity="1" />
+    <End Role="SACH" Type="DBBanSachModel.Store.SACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TACGIA">
+        <PropertyRef Name="MATG" />
+      </Principal>
+      <Dependent Role="SACH">
+        <PropertyRef Name="MATG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,61 @@
+﻿@*@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebBanSach.Models.SACH>*@
+
+@using WebBanSach.Models;
+@model List<SACH>
+
+
+@{
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+    ViewBag.Title = "SPNoiBat";
+   
+}
+<link href="~/Content/NguoiDungCSS/SanPham.css" rel="stylesheet" />
+ <div class="hienthisanpham">
+        
+                 <div id="noibat" style="font-size:30px"> TẤT CẢ SÁCH </div>
+     <br />
+             
+@{int i = 0;}
+@foreach(var item in Model)
+{
+
+    i++;
+            <div id ="hienthi" style="width:270px; height:350px">
+                    <div id="image" ><img src="~/@item.HINHANH" style="width:250px; height:250px"/></div>
+                     <div id="ten" style="font-size:25px">@item.TENSACH</div>                                                          
+                     <div id="gia" style="font-size:30px; color:#FF0000">@item.GIABAN<sup>đ</sup></div>
+                     <a href="@Url.Action("ChiTiet", new { @MASACH = item.MASACH})">Xem chi tiết</a> 
+              @*  <button class="gh" type="button" ><a href="@Url.Action("ThemGioHang","GioHang", new {@MASACH = 1, @strURL = Request.Url.ToString() })" style="color:white">Chọn mua</a></button>*@
+                
+            </div> 
+
+    
+             if(i %  4 == 0)
+             {
+                 <div style="clear:both"></div>
+    <br />
+    <br />
+    <br />
+             } 
+                            
+    
+}
+
+    <br />
+     <br />
+     <br />
+     <br />
+</div>
+<br />
+<div id="Trang"><a href="~/Trang">Trang</a></div>
+@*Trang @(Model.PageCount < Model.PageNumber ? 0 :Model.PageNumber)/ @Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model,Page=>Url.Action("SPNoiBat",new {Page=Page}))
+</div>
+<style>
+    .MenuTrang li {
+        display:inline;
+    }
+</style>*@

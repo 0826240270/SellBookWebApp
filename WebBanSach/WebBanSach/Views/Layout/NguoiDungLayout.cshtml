@@ -1,0 +1,84 @@
+﻿    <!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/NguoiDungCSS/style.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+  
+    <div class="TrangChu">
+<!--Header-->
+    <div class="header">
+        <table border="1" style="background-color:#FFFFFF">
+            <tr>
+                <td style="text-align:left; width:845px; height:30px">Hotline:028123 123 123</td>
+                <td style="text-align:center; width:250px; height:30px"><a href="~/NguoiDung/DangNhap">Đăng nhập</a></td>
+                <td style="text-align:center; width:250px"><a href="~/NguoiDung/DangKy">Đăng ký</a></td>
+           </tr> 
+        </table>
+    </div>
+<!--Logo, tìm kiếm-->
+    <div class="logo">
+	    <table border="0" style="background-color:#FFFFFF">
+             <tr>
+                <td style="text-align:left; width:360px"> <img src="~/Images/logo.png" width="360" height="80"/>  </td>
+                <td style="text-align:center; width:775px">
+               <table> 
+                	<tr>
+                     <td style="text-align:center; width:600px">
+                         <form  class="form-inline my-2" action="@Url.Action("TimKiem","Home")" method="post" style="text-align:center">
+                                <input class="form-control mr-sm-2" type="text" name="txtSearch" placeholder="Tìm Tên Sản Phẩm " style="width:500px; left:10px"/>  <button> <img src="~/Images/find.png" style="width:40px; height:20px; text-align:center"/></button>
+                           </form>         
+                      </td>
+                    </tr>
+              </table>
+              </td>
+               <td style="text-align:center; width:196px">
+            	<table  style="background-color:#FFFFFF; width:172px;">
+                	<tr>
+                         
+                     <td style="text-align:center; width:600px">
+                         <a href="@Url.Action("XemGiohang", "Giohang")">Giỏ Hàng</a></td>
+
+                        
+                   
+                        <td style="text-align:left; width:50px"><img src="~/Images/giohang.jpg" style="width:50px; height:50px"/></td>
+                    </tr>
+                </table>        
+               </td>
+        </table>
+    </div>
+<!--Menu-->
+   <div class="menu">
+        <ul>
+            <li><a href="~/Home/Index">Trang chủ</a></li>            
+            <li><a href="~/Home/SPNoiBat">SẢN PHẨM</a></li>
+            <li><a href="#">SẢN PHẨM NỔI BẬT</a></li>
+        </ul>
+     </div>
+
+    <div class="content">
+    <div class="left">
+    @Html.Action("DanhMuc", "DanhMuc")
+    </div>
+             
+     <div class="right">
+       <div class="logo">
+              @RenderBody()                 
+        </div>
+     </div>
+   </div>   
+    <div class="clear"></div>
+</div>
+    
+    
+</body>
+</html>
+

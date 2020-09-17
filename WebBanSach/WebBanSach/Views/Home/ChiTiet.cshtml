@@ -1,0 +1,60 @@
+﻿@using WebBanSach.Models;
+@model SACH 
+
+
+@{
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+    ViewBag.Title = "ChiTiet";
+   
+}
+
+<h2>Chi tiết sản phẩm</h2>
+
+
+@*<div id ="hienthichitiet">
+    <table>
+        <tr>
+            <td><div id="image" ><img src="@Model.HINHANH" style="width:400px; height:400px"/></div></td>
+                   <td> <div id="ten" style="font-size:25px">@Model.TENSACH</div> 
+                    <div id="loai" style="font-size:25px">@Model.MALOAI</div>
+                    <div id="nxb" style="font-size:25px">@Model.NXB</div>
+                                                             
+                    <div id="gia" style="font-size:30px; color:#FF0000">@Model.GIABAN<sup>đ</sup></div>
+                       <table id="giohang" >
+                        <tr>
+                             <td><input type="submit" name="giohang" value="Thêm vào giỏ hàng" id="giohang1"/></td>
+                        </tr> 
+                         <tr>
+                            <td><p>Số lượng:</p>
+                         <p><input type="number" name="soluong" value="soluong"/> </p></td>
+                        </tr> 
+                         <tr>
+                             <td><input type="submit" name="mua" value="Mua ngay" id="mua"/></td>
+                         </tr>              
+                     </table>  
+                        </td>
+              </tr>
+        </table>
+    </div>*@
+  
+ 
+             <div id ="hienthichitiet"> 
+                                               
+            <table style="width:700px; height:700px">
+            <tr>       
+                   <td><img src="~/@Model.HINHANH" alt=""  style="width:350px; height:500px"/></td>
+                   <td> Tên sản phẩm: <h4 style="color:red"> @Model.TENSACH </h4></td>
+                   <td>Giá bán: <h4 style="color:red">  @Model.GIABAN<sup><u>đ</u></sup></h4>  </td> 
+                   <td></td>
+                   <td><button class="gh" type="button" ><a href="@Url.Action("ThemGioHang","GioHang", new {@sMASACH = Model.MASACH, @strURL = Request.Url.ToString() })" style="color:black; font:30px; width:20px">Chọn mua</a></button></td>                  
+            </tr>  
+              <tr>
+                   <td  colspan="2">                                                           
+             		<h3>Mô tả sản phẩm: @Model.MOTA </h3>
+					<p>  </p>
+                   </td>
+              </tr>
+            
+                </table>
+                 </div>
+             

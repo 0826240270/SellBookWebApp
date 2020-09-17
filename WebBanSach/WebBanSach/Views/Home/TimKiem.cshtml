@@ -1,0 +1,58 @@
+﻿@using WebBanSach.Models;
+@model List<SACH>
+@{
+    ViewBag.Title = "TimKiem";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+@*<h2>TimKiem</h2>
+<div class="tk">
+    @foreach (var sp in Model)
+    {
+        <div class="s">
+            <div class="sach">
+                <p><a href="@Url.Action("SPNoiBat","Home",new{ ms=@sp.MASACH}) "><img src="~/Image/" width="250px" /></a></p>
+                <p>Tên Sản Phẩm: <a style="color:red">@sp.TENSACH</a> </p>
+                <div id="image" ><img src="~/@sp.HINHANH" style="width:250px; height:250px"/></div>
+                <p>Giá: <a style="color:red">@sp.GIABAN</a>VNĐ</p>
+                <p>
+                    <button class="btn btn-danger" type="button"><a href="@Url.Action("HienThiSanPham","Home", new {ms =@sp.MASACH })" style="color:white">Thông Tin</a></button>
+                    <button class="btn btn-danger" type="button" style="margin-left:30px"><a href="@Url.Action("ThemGioHang","GioDungHang", new {ms=@sp.MASACH, @strUrl=Request.Url.ToString()})"style="color:white">Chọn mua</a></button>
+                </p>
+            </div>
+        </div>
+    }
+</div>*@
+
+<div id="noibat" style="font-size:30px">  </div>
+     <br />
+             
+@{int i = 0;}
+@foreach(var item in Model)
+{
+
+    i++;
+            <div id ="hienthi" style="width:270px; height:350px">
+                    <div id="image" ><img src="~/@item.HINHANH" style="width:250px; height:250px"/></div>
+                     <div id="ten" style="font-size:25px">@item.TENSACH</div>                                                          
+                     <div id="gia" style="font-size:30px; color:#FF0000">@item.GIABAN<sup>đ</sup></div>
+                     <a href="@Url.Action("ChiTiet", new { @MASACH = item.MASACH})">Xem chi tiết</a> 
+                
+            </div> 
+
+    
+             if(i % 4 == 0)
+             {
+                 <div style="clear:both"></div>
+    <br />
+    <br />
+    <br />
+             } 
+                            
+    
+}
+
+    <br />
+     <br />
+     <br />
+     <br />

@@ -1,0 +1,37 @@
+﻿@using WebBanSach.Models;
+@model  List<SACH>
+@{
+    ViewBag.Title = "SachTheoLoai";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+
+<link href="~/Content/NguoiDungCSS/SanPham.css" rel="stylesheet" />
+ <div class="hienthisanpham">
+        
+                 <div id="loai" style="font-size:30px"></div>
+             
+@{int i = 0;}
+@foreach(var item in Model)
+{
+
+    i++;
+            <div id ="hienthi" style="width:270px; height:350px">
+                    <div id="image" ><img src="~/@item.HINHANH" style="width:250px; height:250px"/></div>
+                     <div id="ten" style="font-size:25px">@item.TENSACH</div>                                                          
+                     <div id="gia" style="font-size:30px; color:#FF0000">@item.GIABAN<sup>đ</sup></div>
+                     <a href="@Url.Action("ChiTiet", "Home", new { @MASACH = item.MASACH})">Xem chi tiết</a> 
+                
+            </div> 
+             if(i % 4 == 0)
+             {
+                 <div style="clear:both"></div>
+             }                   
+    
+}
+
+    <br />
+     <br />
+     <br />
+     <br />
+</div>

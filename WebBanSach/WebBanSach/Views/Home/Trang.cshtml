@@ -1,0 +1,18 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebBanSach.Models.SACH>
+@{
+    ViewBag.Title = "Trang";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<h2>Trang</h2>
+Trang @(Model.PageCount < Model.PageNumber ? 0 :Model.PageNumber)/ @Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model,Page=>Url.Action("SPNoiBat",new {Page=Page}))
+</div>
+<style>
+    .MenuTrang li {
+        display:inline;
+    }
+</style>
